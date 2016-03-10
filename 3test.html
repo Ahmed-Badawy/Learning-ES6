@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+let promise = new Promise(
+	function(resolve,reject){
+		let return_data = {name:"ahmed",age:33}
+		setTimeout( _=>resolve(return_data) ,1000);
+		// setTimeout( _=>reject(Error("oh Noes!") ) ,1000);
+ 	}
+);
+
+promise.then(function(data){ //sucess
+	theEnd(data);
+}).catch(function(error=null){ //fail
+	console.warn("error is: ",error.message);
+});
+
+function theEnd(data=null){
+	console.log("The End",data);
+}
+
+
+
+//Objects
+console.log( Object.is(2,2) );//is the same ===
+
+
+//Objects Concatination with assign
+var animal = {
+	eat:"yes",
+	sleep:"yes",
+	drink: function(){
+		return "water";
+	}
+}
+var fish = { swim:"yes" }
+var person = {	
+	kill : "yes",
+	speak: function(){
+		return "i speak & think";
+	}
+}
+//you can assign multible objects to an object by appending to the assign function...
+Object.assign(person, animal,fish); //assign both animal & fish to person
+console.log(person);
+
+
+
+</script>
+</body>
+</html>

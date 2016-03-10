@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+	
+//-----------------------------
+//in OOP There is a three pollers 
+// - Polymorphism 
+// - Encapsulation
+// - Inhertance
+
+class NameClass{
+	constructor(name,age){
+		this._name = name;
+		this._age = age;
+		console.log("the provided args is: ",name+" -- "+age);
+	}
+	method1(){ return "Parent Method One"; }
+	method2(){ return "method two result. & the name is: "+this._name; }
+
+	// you can perform encapsulation with get , set keywords
+	get name(){
+		return "from get: "+this._name.toUpperCase();
+	}
+	set name(value){ 
+		this._name = value;
+		console.log("name setter called");
+	}
+}
+let obj = new NameClass("ahmed",22);
+console.log(obj.method2());
+
+obj.name = "Ahmed Badawy"; //will invoke the name setter
+console.log(obj.name);//if you try to get name directly you will get the name getter...
+
+
+//Inhertance
+class ChildClass extends NameClass{//you inherted the NameClass
+	child_method(){ return "Child Method here, the name is: "+this._name; }
+	method1(){ 
+		//super(); //this will invoke any super method with the same name of the current method.. you can also define with method to call EX:-
+		console.log(super.method1()); //Calling the super method1 method
+		console.log("method one overrided") 
+	}//overriding method1
+
+
+	toString(){ //overriding the toString Method
+		return "toString method was called... ";
+	}
+}
+obj2 = new ChildClass("mohamed",55);//you init ChildClass with using the parent constructor
+console.log(obj2.child_method());
+obj2.method2(); //calling method2 from the ChildClass 
+
+obj2.method1();
+
+
+console.log("toString output: ",obj2.toString()); //will return the output of the toString method...
+</script>
+</body>
+</html>

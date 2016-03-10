@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<script type="text/javascript">
+let numbers = [1,2,3,4,5];
+let object = {pram1:"ahmed",pram2:"mona"}
+
+
+//Arrow Functions
+sqr = x => x*x;
+console.log(sqr(4));
+
+
+//-----------------------------------------
+//Itirator  -- didn't work
+// let itirator = numbers[Symbol.itirator];
+// let next = itirator.next();
+// while(next){
+// 	sum += next.value;
+// 	next = itirator.next();
+// }
+//--------------------------------------
+
+//for loops
+
+//- foreach loop
+sum = 0;
+numbers.forEach(x=>{ sum+= x; });
+console.log(sum);
+//- normal for loop
+for(let i=0; i<numbers.length;i++){ /*some code*/ }
+//- for in array
+for(let i in numbers){ /*some code*/ }
+//- for in objects //loop over objects
+output = "";
+for(let i in object){
+	output = output+" -- "+i+" : "+object[i]; 
+}
+console.log(output);
+//-for of loop
+for(let n of numbers){
+	sum += n;
+}
+console.log("for of: ",sum);
+
+
+
+
+
+
+//------------------------------------------
+
+//Numbers
+var HexNumber 		= 0xa;//this is how to define hex. leading 0x
+var OctNumber 		= 071;//this is how to define oct. leading zero
+var Oct2Number		= 0o71;//second way to define oct. leading (0o)
+var BinaryNumber 	= 0b101;//how to define binary. leading 0b
+var DecimalNumber 	= 10; 
+
+//you can write numbers like this:-
+Number("0b101");
+Number.parseInt("3");//parse to int
+Number.parseFloat("3.5");//parse to float
+
+Number.isInteger("1.5");//test is integer
+
+//new in es6:-
+Math.acosh(1);
+Math.asinh(0);
+Math.atanh(0);
+Math.cosh(0);
+Math.sinh(0);
+Math.tanh(0);
+
+Math.cbrt(27);//output 3
+Math.clz32(5);//leading zeros from 32bits 
+Math.log1p(35)
+Math.log10(100)
+Math.log2(32)
+Math.expm1(35)
+Math.hypot(3,4)// 27+16=25 ans is:5  (why:) square then add then cbrt.
+Math.fround(2.888)
+
+
+//,sign is a cool way test numbers:
+//if + return 1. if 0 return 0. if negative return -1;
+Math.sign(10);//return 1
+Math.sign(0)//return 0
+Math.sign(-1)//return -1
+
+//.trunc will round down if(number is +) & round up if(number is -)
+Math.trunc(2.8)
+
+
+
+
+
+//Array
+var array = [1,2,5,10];
+console.log("will return 10", array.find( item => item==10 ) )//find will return the first element that inner function returns true
+
+console.log("will return 3", array.findIndex( item => item==10 ) )//findIndex will return the first index that maths from the inner function
+
+
+
+//Sets
+var set1 = new Set();
+set1.add("one");
+set1.add("key","value");
+set1.add({ key:"value" });
+console.log("Set is: ",set1);
+console.log("does set has one ?", set1.has("one") );//return true
+//set1.clear(); //empty all
+//set1.delete("one"); //delete item
+
+var entries = set1.entries(); //return an itirator of the set
+console.log(entries.next());
+
+
+
+
+//Maps
+var map1 = new Map();
+map1.size;
+map1.set("key","value");
+map1.set("age",35);
+map1.get("age");
+map1.set( {name:"ahmed"}, 29 );
+map1.has("age");
+map1.delete("age")
+for([key,value] of map1) console.log("key,value for of",key+" -- "+value);
+
+
+
+
+
+
+</script>
+</body>
+</html>

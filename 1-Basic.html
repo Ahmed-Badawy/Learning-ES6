@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+<script type="text/javascript">
+/*
+- with var you have limitations in the scope criteria. with var you had two scopes only: 
+- the global scope(if var defined in global) 
+- the function scope if defined inside a function
+
+but the let keyword will solve this. it provide a real block scoping.
+*/
+
+
+
+//------------------------------
+/* const variable = somevalue
+constants can't be reassigned in es 6. so you can't change a const value at all.*/
+const variable = 50;
+// variable = 66; //will throw an error because you cant reassign const value...
+console.log("variable from constant is: ", variable);
+
+//-----------------------------
+//Deconstructing:-
+let x = "first";
+let y = "second";
+[x,y] = [y,x];
+
+console.log("first values are: ",x+" --- "+y);
+//also you can define variables with it, or even return a defintion array from a function:-
+let[x1,y1] = ["first","second"];
+console.log("second values are: ",x1+" - "+y1);
+
+//you can return a function with the array, also you can skip a value if you just let the assigner empty
+let[,x2,y2] = function(){
+	return ["first","second"];//it will assign "second",undefined
+}();
+console.log("third values are: ",x2+" - "+y2);
+
+
+//also you can use Deconstructions with objects.
+let{x4,y4,z4} = {x4:"one",y4:"two",z4:"three"} ;
+console.log("fourth values are: ",x4+" -- "+y4+" -- "+z4);
+
+
+//also you can use objects Deconstructions with different vaiables names, also you can access inner objects: 
+let{
+	prop1:x5,
+	prop2:y5,
+	prop3:z5,
+	prop4:{one:obj_out}
+	} = {
+	prop1:"one",
+	prop2:"two",
+	prop3:"three",
+	prop4:{one:"hello first var"} //inner obj
+	} ;
+console.log("fifth values are: ",x5+" -- "+y5+" -- "+z5+" -- "+obj_out);
+
+
+//also you can define the functions to assign prams automatically:
+function handel1(url,{pram1,pram2,pram3,pram4}){
+	console.log(pram1,pram2,pram3,pram4);
+}
+handel1("the url",{pram1:"pram 1 value",pram2:"pram 2 value",pram4:"pram 4 value"});
+
+
+//now in es6 you have default values just like php
+function handel2(pram="one"){
+	console.log("handle 2 value is: ",pram);
+} 
+handel2("hello world");
+
+
+//you can use the Rest Prameters sytax to define unknown prams num
+function handel3(...prams){
+	console.log(prams);
+}
+handel3(1,2,3,4,5);
+
+
+//you can use the array spread to convert array to variables
+function handel4(prams1,pram2,pram3,pram4,pram5){
+	console.log("handel 4 is here: ",prams1,pram2,pram3,pram4,pram5);
+}
+handel4(...[1,2,3,4,5]); //spread: ...[array] converts an array to normal variables
+
+
+//you can use temblate literials that define a text on multible lines & replace any part of it.... just use `` with ${pram_name} inside them
+let temb_pram = " this must be a four ";
+let text1 = `one,two,three,${temb_pram},five,six,seven,eight`;
+console.log(text1);
+
+//utilize a function with a temblate literials
+function temb_function(string,...vals){
+	console.log("temblating function: Strings ",string);
+	console.log("temblating function: Values ",vals);
+}
+let temb_pram1 = " 111 ";
+let temb_pram2 = " 222 ";
+let temb_pram3 = " 333 ";
+let text2 = temb_function `one,two,three,${temb_pram1},five,${temb_pram2},seven,${temb_pram3}`;//here you passed the string & values inside a temb_functions 
+
+
+</script>
+</body>
+</html>
